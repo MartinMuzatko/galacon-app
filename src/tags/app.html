@@ -1,0 +1,44 @@
+<app>
+    <section>
+        <h1>GalaCon 2016 - 5th Anniversary</h1>
+        <card card="{card}" onclick={select} class="card card-{key}" each={key, card in cards}>
+            <img src="img/{key}.png" alt="">
+            <footer view="card" data-is="{key}">
+            </footer>
+        </card>
+    </section>
+    <main name="content"></main>
+    <script>
+
+        this.cards = {
+            event: {title: 'Events'},
+            guest: {title: 'Guests'}
+            // 'Rooms',
+            // 'Vendor',
+            // 'Supporter',
+            // 'Map',
+            // 'Venue',
+            // 'Team'
+        }
+
+        this.on('mount', () => {
+            console.log(this)
+            for (var card in this.cards) {
+                riot.mount(this.cards[card])
+            }
+
+            riot.route.start(true)
+            riot.route((name) => {
+                riot.mount(this.content, name, {view: 'full'})
+            })
+        })
+
+        select(e) {
+            riot.route(e.item.key)
+            //e.item.card
+        }
+
+        //Rules,
+
+    </script>
+</app>

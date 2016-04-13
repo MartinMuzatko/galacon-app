@@ -1,0 +1,149 @@
+<event>
+    <div if={opts.view == 'card'}>
+
+    </div>
+    <div if={opts.view == 'full'}>
+        <section class="scheduler">
+            <div class="pointer" style="top: {pointerTime}em"></div>
+    		<div class="timeAxis">
+    			<div
+    				layout="column"
+    				each={hour in timespan}
+    				style="height: {scale}em"
+    				class="hour">
+    				<div
+    					each={step in timesteps}>
+    					{pad(hour,2)}:{pad(step,2)}
+    				</div>
+    			</div>
+    		</div>
+            <div class="events" layout="row" layout-align="space-between">
+    			<div
+    				layout="column"
+    				class="day"
+    				each={day, rooms in schedule}>
+    				<h2>{day}</h2>
+    				<div layout="column" each={room, events in rooms}>
+    					<h3>{room}</h3>
+    					<div
+    						class="event"
+    						each={time, event in events}
+    						style="
+    							background: hsl({event.hue}, 50%, 50%);
+    							top: {getTimeSpan(time).offset*scale}em;
+    							height: {getTimeSpan(time).height*scale}em"
+    						>
+    						<h4>{event.title}</h4>
+    						{event.description}
+    					</div>
+    				</div>
+    			</div>
+    		</div>
+        </section>
+    </div>
+    <script>
+
+    this.pad = function(n, width, z = 0)
+    {
+        n = n + ''
+        return n.length >= width ? n : new Array(width - n.length + 1).join(z) + n
+    }
+    this.modRange = function(start, end, step = 24)
+    {
+        var array = []
+        end = end < start ? end + step : end
+        c = parseInt(end) - parseInt(start) + 1
+        while (c--)
+        {
+            array[c] = parseInt(end--) % step
+        }
+        return array
+    }
+    this.scale = 6
+    // e.g. 0,15,30,45 - quarter or half steps
+    this.timesteps = [0,30]
+    // From 8AM to 1AM
+    this.dayStart	= 8
+    this.dayEnd 	= 24
+    this.timespan = this.modRange(this.dayStart, this.dayEnd)
+    this.events =
+    {
+        'opening' :
+        {
+            'hue' : 210,
+            'title' : 'Eröffnungszeremonie',
+            'description' : 'Nicole Oliver will Meow!'
+        },
+        'cosplay' :
+        {
+            'hue' : 120,
+            'title' : 'Cosplay Contest',
+            'description' : 'Nicole Oliver will Meow!'
+        }
+    }
+
+    this.schedule =
+    {
+        Saturday :
+        {
+            'Schubart Saal' :
+            {
+                '9:00-11:00' : this.events.opening,
+                '18:00-22:30' : this.events.cosplay,
+            }
+        },
+        Sunday :
+        {
+            'Schubart Saal' :
+            {
+                '9:00-11:00' : this.events.opening,
+                '18:00-22:30' : this.events.cosplay,
+            }
+        }
+    }
+
+    this.getTimeSpan = function(time)
+    {
+        var times 	= time.split('-')
+        var start 	= this.timeToInt(times[0])
+        var end 	= this.timeToInt(times[1])
+        return {
+            'offset' : start - this.dayStart,
+            'height' : end - start
+        }
+    }
+
+    this.timeToInt = function(time)
+    {
+        var time = time.split(':')
+        if (time.length > 1)
+        {
+            // TOdo add support for 3-size array (seconds)
+            return parseInt(time[0]) + time[1] / 60
+        }
+        return time[0]
+    }
+
+    this.refreshPointer = function()
+    {
+        this.pointerTime = this.timeToInt(new Date().toLocaleTimeString())
+        this.pointerTime < this.dayStart ? this.pointerTime += 24 : this.pointerTime
+        this.pointerTime = this.pointerTime * this.scale - this.dayStart * this.scale
+    }
+
+    this.on('mount', () => {
+        setInterval
+        (
+            () => {
+                this.update()
+            },
+            1000
+        )
+    })
+
+    this.on('update', () => {
+            this.refreshPointer()
+        }
+    )
+    </script>
+</event>
