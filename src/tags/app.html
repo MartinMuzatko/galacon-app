@@ -1,24 +1,29 @@
 <app>
-    <section>
-        <h1>GalaCon 2016 - 5th Anniversary</h1>
-        <card card="{card}" onclick={select} class="card card-{key}" each={key, card in cards}>
+    <section class="animated" name="menu" layout="row" layout-align="space-between start">
+        <card
+            card="{card}"
+            onclick={select}
+            class="card card-{key}"
+            flex="30"
+            each={key, card in cards}
+        >
             <img src="img/{key}.png" alt="">
             <footer view="card" data-is="{key}">
             </footer>
         </card>
     </section>
-    <main name="content"></main>
+    <main class="animated" name="content"></main>
     <script>
 
         this.cards = {
             event: {title: 'Events'},
-            guest: {title: 'Guests'}
-            // 'Rooms',
-            // 'Vendor',
-            // 'Supporter',
-            // 'Map',
-            // 'Venue',
-            // 'Team'
+            guest: {title: 'Guests'},
+            room: {title: 'Rooms'},
+            vendor: {title: 'Vendor'},
+            supporter: {title: 'Supporter'},
+            map: {title: 'Map'},
+            venue: {title: 'Venue'},
+            team: {title: 'Team'}
         }
 
         this.on('mount', () => {
@@ -30,6 +35,8 @@
             riot.route.start(true)
             riot.route((name) => {
                 riot.mount(this.content, name, {view: 'full'})
+                //this.menu.classList.toggle('fadeOutUp')
+                this.content.classList.toggle('fadeInUp')
             })
         })
 
