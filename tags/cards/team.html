@@ -1,0 +1,22 @@
+<team>
+    <h2>Team</h2>
+    <div each={member in members}>
+        <h3>{member.name}</h3>
+        {member.position}
+        {member.description}
+    </div>
+    <script>
+        this.members = [
+            {
+                name: 'Saij',
+                position: 'Conchair',
+                description: 'Miau'
+            },
+            {
+                name: 'Misan',
+                position: 'Webentwicklerli',
+                description: 'Miaut auch'
+            }
+        ]
+    </script>
+</team>
