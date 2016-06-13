@@ -39,6 +39,7 @@
   },
   "dependencies": {
     "animate.css": "^3.5.1",
+    "normalize.css": "^4.1.1",
     "nouislider": "^8.5.1"
   }
 }
