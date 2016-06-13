@@ -42,7 +42,12 @@
 
             riot.route.start(true)
             riot.route((name) => {
-                riot.mount(this.content, name, {view: 'full'})
+                if (name == 'main') {
+                    this.view = 'main'
+                    this.update()
+                } else {
+                    riot.mount(this.content, name, {view: 'full'})
+                }
                 //this.menu.classList.toggle('fadeOutUp')
                 this.content.classList.toggle('fadeInUp')
             })
@@ -50,6 +55,7 @@
 
         back(e) {
             this.view = 'main'
+            riot.route('main')
         }
 
         select(e) {
