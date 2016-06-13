@@ -1,6 +1,7 @@
 <app>
-    <header if={view=='card'} class="breadcrumbs">
-        <a onclick={back}>back to app</a>
+    <header class="appmenu">
+        Galacon Conguide
+        <a onclick={back} if={view!='main'}>back to app</a>
     </header>
     <section if={view=='main'} class="animated" name="menu" layout="row" layout-align="space-between start">
         <card
@@ -21,15 +22,15 @@
     <script>
 
         this.cards = {
-            event: {title: 'Events'},
-            guest: {title: 'Guests'},
-            room: {title: 'Rooms'},
-            vendor: {title: 'Vendor'},
-            supporter: {title: 'Supporter'},
-            map: {title: 'Map'},
-            venue: {title: 'Venue'},
-            team: {title: 'Team'},
-            rules: {title: 'Rules'}
+            event: { title: 'Events'},
+            guest: { title: 'Guests'},
+            room: { title: 'Rooms'},
+            vendor: { title: 'Vendor'},
+            supporter: { title: 'Supporter'},
+            ludwigsburg: { title: 'Ludwigsburg'},
+            venue: { title: 'Venue'},
+            team: { title: 'Team'},
+            rules: { title: 'Rules'}
         }
 
         this.view = 'main'
