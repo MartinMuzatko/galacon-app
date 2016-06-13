@@ -1,42 +1,73 @@
-/* VARIABLES */
+/*  ========================================
+    COLORS
+    ======================================== */
 
-	/* COLORS */
-	@color-main: hsl(283, 38%, 33%);
-	@color-secondary: hsl(80, 60%, 60%);
+@color-primary: hsl(60, 71%, 55%);
+// @color-primary-light:
+@color-primary-dark: hsl(86, 63%, 42%);
+@color-secondary: hsl(198, 100%, 44%);
+// @color-secondary-light:
+@color-secondary-dark: hsl(201, 15%, 27%);
 
-	@color-shadow: rgba(0, 0, 0, 0.5);
-	@color-light: lighten(@color-shadow, 100%);
-	@color-fill-dark: #1F1F1F;
-	@color-fill-light: #F2F2F2;
+@color-dark: hsl(201, 15%, 27%);
+@color-light: #FFF;
+@color-dark-shadow: fadeout(@color-dark, 50%);
+@color-light-shadow: fadeout(@color-light, 50%);
+@color-shadow: @color-dark-shadow;
 
-	@color-background: @color-fill-light;
+/*  ========================================
+    FONTS
+    ======================================== */
 
-	/* BACKGROUND */
+@font-light: Cuprum;
+@font-medium: Cuprum;
+@font-bold: Cuprum;
+@font-replacement: sans serif;
 
-	/* RADI TOOLS*/
+@font-size-small: 0px;
 
-	@bevelLeftLower: 45deg;
-	@bevelLeftUpper: 135deg;
-	@bevelRightUpper: 225deg;
-	@bevelRightLower: 305deg;
+/*  ========================================
+    BREAKPOINTS
+    ======================================== */
 
-	/* FONTS */
+@breakpoint-sm: 600px;
+@breakpoint-md: 960px;
+@breakpoint-lg: 1200px;
 
-	@fontMain:		Asap;
-	@fontTitle:		Oswald;
-	@fontCaption:	Merriweather;
-	@fontMainSize: 100%;
+/*  ========================================
+    Z-INDEXES
+    ======================================== */
 
-	/* GRID */
+@z-index-overlay: 200;
+@z-index-searchbar: 300;
+@z-index-header: 400;
+@z-index-modal: 500;
+@z-index-popup: 600;
 
-	@cols: 3;
-	@col-gutter: 1em;
+/*  ========================================
+    DURATIONS
+    ======================================== */
 
-	/* PADDING */
-	@paddingContent: 10%;
+@duration-hover: .1s;
+@duration-action: .33s;
 
-	@navLineHeight: 4;
-	@navOffset: 1em;
+/*  ========================================
+    INDENTATIONS
+    ======================================== */
 
-	/* BOX-SHADOW BORDER */
-	@border: .3em;
+@indent-outer: 6em;
+@indent-larger: 4em;
+@indent-large: 2em;
+@indent-medium: 1em;
+@indent-small: .25em;
+
+@border-width: @indent-small;
+
+/*  ========================================
+    RADI
+    ======================================== */
+
+@bevel-left-lower: 45deg;
+@bevel-left-upper: 135deg;
+@bevel-right-upper: 225deg;
+@bevel-right-lower: 305deg;

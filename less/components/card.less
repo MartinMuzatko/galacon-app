@@ -1,14 +1,55 @@
 .card
 {
-    color: @color-main;
-    background-color: @color-shadow;
-    margin: 1em;
-    header {
-        h2 {
-            padding: 0 1em;
+    padding: 1em .5em;
+    > div {
+        cursor: pointer;
+        transition: all .5s ease;
+        img {
+            transition: all .5s ease;
+            transform: scale(.85);
         }
-    }
-    footer {
-        border-top: 1px solid @color-shadow;
+        &:hover {
+            img {
+                transform: scale(1);
+            }
+            &.card-event {
+                background: #AD3D49;
+            }
+            &.card-guest {
+                background: #B780B6;
+            }
+            &.card-room {
+                background: transparent;
+            }
+            &.card-vendor {
+                background: #B3C43E;
+            }
+            &.card-supporter {
+                background: transparent;
+            }
+            &.card-ludwigsburg {
+                background: #271F3D;
+            }
+            &.card-venue {
+                background: transparent;
+            }
+            &.card-team {
+                background: #526AE7;
+            }
+            &.card-rules {
+                background: #486A37;
+            }
+        }
+        color: @color-dark;
+        text-shadow: 1px 1px 2px @color-light-shadow;
+        background-color: @color-shadow;
+        header {
+            h2 {
+                padding: 0 1em;
+            }
+        }
+        footer {
+            border-top: 1px solid @color-shadow;
+        }
     }
 }
