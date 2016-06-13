@@ -1,5 +1,35 @@
 <vendor>
-    <h2>keks!</h2>
+    <h2>Vendors</h2>
+    <div each={vendor in vendors}>
+        {vendor.name} - Table # {vendor.table}
+        Sells {vendor.inventory}
+    </div>
     <script>
+        this.vendors = [
+            {
+                name: 'Pinku',
+                table: 28,
+                inventory: [
+                    'Plüsch',
+                    'Fanart'
+                ]
+            },
+            {
+                name: 'Torben',
+                table: 29,
+                inventory: [
+                    'Sticker',
+                    'Wooden Carvings'
+                ]
+            },
+            {
+                name: 'Zunt',
+                table: '22-39',
+                inventory: [
+                    'Plüsch Imperium',
+                    'Hasbro Zeug'
+                ]
+            },
+        ]
     </script>
 </vendor>

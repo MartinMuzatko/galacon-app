@@ -1,3 +1,24 @@
 <venue>
-    <b>Beispielsmap</b>
+    <h2>Venue</h2>
+    <a onclick={prev}>prev</a> | <a onclick={next}>next</a>
+    <div style="position: relative">
+        <img each={stage in stages} style="position: absolute; opacity: 0.{'9': stage == currentStage, '2': stage != currentStage};" src="img/venue/{stage}.svg" alt="" />
+    </div>
+    <script>
+        this.stages = [0,1,2]
+        this.currentStage = 0
+        next(e) {
+            if (this.currentStage < this.stages.length)
+            {
+                this.currentStage += 1
+            }
+        }
+
+        prev(e) {
+            if (this.currentStage > 0)
+            {
+                this.currentStage -= 1
+            }
+        }
+    </script>
 </venue>
