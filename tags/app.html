@@ -6,11 +6,10 @@
     <section if={view=='main'} class="animated" name="menu" layout="row" layout-align="space-between start">
         <card
             card="{card}"
+            key="{key}"
             onclick={select}
             class="card card-{key}"
-            flex="30"
-            layout="column"
-            layout-align="center center"
+            flex="33"
             each={key, card in cards}
         >
             <img src="img/card/{key}.png" alt="">

@@ -1,9 +1,10 @@
 <card>
-    <yield/>
-    <header>
-        <h2>{opts.card.title}</h2>
-    </header>
+    <div class="card-{opts.key}" layout="column" layout-align="center center">
+        <yield/>
+        <header>
+            <h2>{opts.card.title}</h2>
+        </header>
+    </div>
     <script>
-        console.log(opts.card)
     </script>
 </card>
