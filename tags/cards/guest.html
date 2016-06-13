@@ -1,5 +1,28 @@
 <guest>
-    <h2>keks!</h2>
+    <h2>Guests of Honor</h2>
+    <div each={guest in guests.honor}>
+        <h3>{guest.name}</h3>
+        {guest.description}
+    </div>
+    <h2>Community Guests</h2>
+    <div each={guest in guests.community}>
+        <h3>{guest.name}</h3>
+        {guest.description}
+    </div>
     <script>
+        this.guests = {
+            honor: [
+                {
+                    name: 'Michael',
+                    description: 'Michael is the best guest we will have'
+                }
+            ],
+            community : [
+                {
+                    name: 'Michael',
+                    description: 'Michael is the best guest we will have'
+                }
+            ]
+        }
     </script>
 </guest>

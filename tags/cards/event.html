@@ -1,8 +1,6 @@
 <event>
-    <div if={opts.view == 'card'}>
-
-    </div>
-    <div if={opts.view == 'full'}>
+    <h2>Events</h2>
+    <div>
         <section class="scheduler">
             <div class="pointer" style="top: {pointerTime}em"></div>
     		<div class="timeAxis">
@@ -26,6 +24,7 @@
     				<div layout="column" each={room, events in rooms}>
     					<h3>{room}</h3>
     					<div
+                            onclick={showDetail}
     						class="event"
     						each={time, event in events}
     						style="
@@ -42,6 +41,10 @@
         </section>
     </div>
     <script>
+
+    showDetail(e) {
+        console.log(e)
+    }
 
     this.pad = function(n, width, z = 0)
     {
