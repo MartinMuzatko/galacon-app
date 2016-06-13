@@ -1,40 +1,40 @@
 var webpack = require('webpack')
-var ExtractTextPlugin = require('extract-text-webpack-plugin');
+var path = require('path')
+var autoprefixer = require('autoprefixer')
 
 module.exports = {
-    cache: true,
-    entry: {
-        app: './src/index.js',
-        vendor: './src/vendor.js',
-    },
+    entry: './index.js',
     output: {
-        path: './dist/',
-        publicPath: '/dist/',
-        filename: 'bundle.js'
+        path: './',
+        filename: 'bundle.js',
+        publicPath: ''
     },
     module: {
+        preLoaders: [
+            { test: /\.html$/, loader: 'riotjs' }
+        ],
         loaders: [
             {
-                test: /\.less$/,
-                include: /src/,
-                loader: 'style!css!less'
-            },
-            {
-                test: /\.(jpe?g|png|gif|svg)$/i,
+                test: /\.(jpe?g|png|gif|svg|mp4)$/i,
                 loader:'file-loader'
             },
-            { test: /\.html$/, include: /src/, loader: 'riotjs' },
-            { test: /\.js$/, include: /src/, loader: 'babel', query: { presets: 'es2015-riot' } },
+            { test: /\.less$/, loader: 'style!css!postcss!less' },
+            { test: /\.js$|\.html$/, loader: 'babel', query: { presets: 'es2015-riot' } }
         ]
     },
     plugins: [
         new webpack.ProvidePlugin({
             riot: 'riot'
         }),
-        new webpack.optimize.CommonsChunkPlugin(/* chunkName= */"vendor", /* filename= */"vendor.bundle.js")
+        new webpack.optimize.UglifyJsPlugin({warnings: false})
     ],
-    devServer: {
-        port: 8080
+    postcss: function () {
+        return [autoprefixer({browsers: 'last 2 versions'})];
     },
-    devtool: "source-map"
+    devServer: {
+        port: 7070,
+        outputPath: __dirname,
+        inline: false,
+        progress: true,
+    },
 }

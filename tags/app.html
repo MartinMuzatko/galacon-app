@@ -5,6 +5,8 @@
             onclick={select}
             class="card card-{key}"
             flex="30"
+            layout="column"
+            layout-align="center center"
             each={key, card in cards}
         >
             <img src="img/{key}.png" alt="">
@@ -23,7 +25,8 @@
             supporter: {title: 'Supporter'},
             map: {title: 'Map'},
             venue: {title: 'Venue'},
-            team: {title: 'Team'}
+            team: {title: 'Team'},
+            rules: {title: 'Rules'}
         }
 
         this.on('mount', () => {
