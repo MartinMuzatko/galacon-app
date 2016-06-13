@@ -72,13 +72,13 @@
         {
             'hue' : 210,
             'title' : 'Eröffnungszeremonie',
-            'description' : 'Nicole Oliver will Meow!'
+            'description' : 'Details about the event'
         },
         'cosplay' :
         {
-            'hue' : 120,
+            'hue' : 140,
             'title' : 'Cosplay Contest',
-            'description' : 'Nicole Oliver will Meow!'
+            'description' : 'Details about the event'
         }
     }
 
@@ -90,16 +90,12 @@
             {
                 '9:00-11:00' : this.events.opening,
                 '18:00-22:30' : this.events.cosplay,
+            },
+            'Main Hall' :
+            {
+                '11:15-12:00' : this.events.cosplay
             }
         },
-        Sunday :
-        {
-            'Schubart Saal' :
-            {
-                '9:00-11:00' : this.events.opening,
-                '18:00-22:30' : this.events.cosplay,
-            }
-        }
     }
 
     this.getTimeSpan = function(time)
