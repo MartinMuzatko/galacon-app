@@ -52,7 +52,7 @@
     {
         var array = []
         end = end < start ? end + step : end
-        c = parseInt(end) - parseInt(start) + 1
+        var c = parseInt(end) - parseInt(start) + 1
         while (c--)
         {
             array[c] = parseInt(end--) % step

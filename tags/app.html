@@ -1,5 +1,8 @@
 <app>
-    <section class="animated" name="menu" layout="row" layout-align="space-between start">
+    <header if={view=='card'} class="breadcrumbs">
+        <a onclick={back}>back to app</a>
+    </header>
+    <section if={view=='main'} class="animated" name="menu" layout="row" layout-align="space-between start">
         <card
             card="{card}"
             onclick={select}
@@ -14,7 +17,7 @@
             </footer>
         </card>
     </section>
-    <main class="animated" name="content"></main>
+    <main if={view=='card'} class="animated" name="content"></main>
     <script>
 
         this.cards = {
@@ -28,6 +31,8 @@
             team: {title: 'Team'},
             rules: {title: 'Rules'}
         }
+
+        this.view = 'main'
 
         this.on('mount', () => {
             console.log(this)
@@ -43,9 +48,13 @@
             })
         })
 
+        back(e) {
+            this.view = 'main'
+        }
+
         select(e) {
             riot.route(e.item.key)
-            //e.item.card
+            this.view = 'card'
         }
 
         //Rules,
