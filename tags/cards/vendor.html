@@ -1,35 +1,470 @@
 <vendor>
     <h2>Vendors</h2>
-    <div each={vendor in vendors}>
-        {vendor.name} - Table # {vendor.table}
-        Sells {vendor.inventory}
+    Listing {getVendors().length} Items
+    <div if={filter.length} onclick={clearFilter}>
+        Clear all filter
+        matching the following criteria
+    </div>
+    <div if={containsFilter(vendor)} each={vendor in vendors}>
+        <h3>{vendor.name}</h3>
+        <div layout="row" class="items">
+            <div
+            onclick={setFilter}
+            class="item"
+            layout="column" layout-align="space-between center"
+            each={item, key in vendor.items}>
+                <img src="img/item/{key}.png" style="background-color: hsl({item.hue}, 50%, 50%);">
+                <span>{item.name}</span>
+            </div>
+        </div>
+
     </div>
     <script>
+
+        this.filter = []
+
+        this.items = {
+            accessory : {
+                name: 'accessory',
+                hue: 0
+            },
+            art : {
+                name: 'art',
+                hue: 10
+            },
+            beadart : {
+                name: 'beadart',
+                hue: 20
+            },
+            blindbag : {
+                name: 'blindbag',
+                hue: 30
+            },
+            bookmark : {
+                name: 'bookmark',
+                hue: 40
+            },
+            button : {
+                name: 'button',
+                hue: 50
+            },
+            canvas : {
+                name: 'canvas',
+                hue: 60
+            },
+            cloth : {
+                name: 'cloth',
+                hue: 70
+            },
+            coaster : {
+                name: 'coaster',
+                hue: 80
+            },
+            comic : {
+                name: 'comic',
+                hue: 90
+            },
+            comission : {
+                name: 'comission',
+                hue: 100
+            },
+            custom : {
+                name: 'custom',
+                hue: 110
+            },
+            engravedGlass : {
+                name: 'engravedGlass',
+                hue: 120
+            },
+            jewelry : {
+                name: 'jewelry',
+                hue: 130
+            },
+            magnet : {
+                name: 'magnet',
+                hue: 140
+            },
+            mousepad : {
+                name: 'mousepad',
+                hue: 150
+            },
+            mug : {
+                name: 'mug',
+                hue: 160
+            },
+            official : {
+                name: 'official',
+                hue: 170
+            },
+            paper : {
+                name: 'paper',
+                hue: 180
+            },
+            patch : {
+                name: 'patch',
+                hue: 190
+            },
+            pillow : {
+                name: 'pillow',
+                hue: 200
+            },
+            plushie : {
+                name: 'plushie',
+                hue: 210
+            },
+            print : {
+                name: 'print',
+                hue: 220
+            },
+            sculpture : {
+                name: 'sculpture',
+                hue: 230
+            },
+            sewn : {
+                name: 'sewn',
+                hue: 250
+            },
+            sticker : {
+                name: 'sticker',
+                hue: 260
+            },
+            towel : {
+                name: 'towel',
+                hue: 270
+            },
+            tshirt : {
+                name: 'tshirt',
+                hue: 280
+            },
+            tumbler : {
+                name: 'tumbler',
+                hue: 290
+            },
+            woodenCarvings : {
+                name: 'woodenCarvings',
+                hue: 300
+            }
+        }
+
         this.vendors = [
             {
-                name: 'Pinku',
-                table: 28,
-                inventory: [
-                    'Plüsch',
-                    'Fanart'
+                table: '1-2',
+                name: "DSC-GRAPHICS/Stable-Tec Studios",
+                items: [
+                    this.items.custom, this.items.print, this.items.engravedGlass, this.items.accessory
                 ]
             },
             {
-                name: 'Torben',
-                table: 29,
-                inventory: [
-                    'Sticker',
-                    'Wooden Carvings'
+                table: '3',
+                name: 'Mana-Kyusai',
+                items: [
+                    this.items.plushie, this.items.button, this.items.print, this.items.sewn
                 ]
             },
             {
-                name: 'Zunt',
-                table: '22-39',
-                inventory: [
-                    'Plüsch Imperium',
-                    'Hasbro Zeug'
+                table: '4',
+                name: 'SKUNK412',
+                items: [
+                    this.items.print, this.items.tshirt, this.items.cloth, this.items.mousepad
                 ]
             },
+            {
+                table: '5',
+                name: 'Siora',
+                items: [
+                    this.items.plushie, this.items.button, this.items.sewn, this.items.jewelry, this.items.paper, this.items.accessory
+                ]
+            },
+            {
+                table: '6',
+                name: 'Zita',
+                items: [
+                    this.items.custom, this.items.button, this.items.print, this.items.tshirt, this.items.paper
+                ]
+            },
+            {
+                table: '7-8',
+                name: 'Yasi',
+                items: [
+                    this.items.plushie, this.items.print, this.items.sewn
+                ]
+            },
+            {
+                table: '25',
+                name: 'Salacious Crumb',
+                items: [
+                    this.items.jewelry, this.items.accessory
+                ]
+            },
+            {
+                table: '26',
+                name: 'atelok',
+                items: [
+                    this.items.custom, this.items.sculpture, this.items.beadart
+                ]
+            },
+            {
+                table: '27-28',
+                name: 'steeph',
+                items: [
+                    this.items.tshirt, this.items.sewn, this.items.engravedGlass, this.items.patch
+                ]
+            },
+            {
+                table: '29',
+                name: 'XTorbenx',
+                items: [
+                    this.items.button, this.items.print, this.items.tshirt, this.items.woodenCarvings
+                ]
+            },
+            {
+                table: '30',
+                name: 'Manic Sculpture',
+                items: [
+                    this.items.custom, this.items.sculpture, this.items.engravedGlass
+                ]
+            },
+            {
+                table: '9-10',
+                name: 'rtry',
+                items: [
+                    this.items.plushie, this.items.engravedGlass
+                ]
+            },
+            {
+                table: '11-12',
+                name: 'haselwoelfchen, Shevia, Sakutaro',
+                items: [
+                    this.items.plushie, this.items.print, this.items.sewn
+                ]
+            },
+            {
+                table: '13-14',
+                name: 'pro-stoff.de',
+                items: [
+                    this.items.custom, this.items.tshirt, this.items.cloth, this.items.sewn, this.items.accessory, this.items.engravedGlass
+                ]
+            },
+            {
+                table: '15',
+                name: 'Casy Nuf',
+                items: [
+                    this.items.button, this.items.print, this.items.canvas
+                ]
+            },
+            {
+                table: '16',
+                name: 'Alasou',
+                items: [
+                    this.items.print
+                ]
+            },
+            {
+                table: '17-18',
+                name: 'Dealerpony Shop (Zunt)',
+                items: [
+                    this.items.button, this.items.blindbag, this.items.official, this.items.sculpture
+                ]
+            },
+            {
+                table: '19',
+                name: 'AngelWarrior',
+                items: [
+                    this.items.plushie, this.items.accessory, this.items.patch
+                ]
+            },
+            {
+                table: '20',
+                name: 'Borut Vash',
+                items: [
+                    this.items.custom
+                ]
+            },
+            {
+                table: '21',
+                name: 'Alexcited this.items.plushie',
+                items: [
+                    this.items.plushie, this.items.sewn
+                ]
+            },
+            {
+                table: '22',
+                name: 'Mangamaus',
+                items: [
+                    this.items.plushie, this.items.custom, this.items.accessory
+                ]
+            },
+            {
+                table: '23',
+                name: 'CreepyRiver',
+                items: [
+                    this.items.button, this.items.cloth, this.items.sculpture, this.items.jewelry
+                ]
+            },
+            {
+                table: '24',
+                name: 'Perrydotto',
+                items: [
+                    this.items.button, this.items.print, this.items.mug
+                ]
+            },
+            {
+                table: '31',
+                name: 'Asukatze',
+                items: [
+                    this.items.custom, this.items.blindbag, this.items.canvas
+                ]
+            },
+            {
+                table: '32',
+                name: "Lan's Mad Plush Party",
+                items: [
+                    this.items.plushie, this.items.cloth, this.items.sewn
+                ]
+            },
+            {
+                table: '33-34',
+                name: 'Rariedash & Fafatacle',
+                items: [
+                    this.items.plushie, this.items.button, this.items.print, this.items.sewn, this.items.sculpture
+                ]
+            },
+            {
+                table: '35-36',
+                name: 'Avitani',
+                items: [
+                    this.items.custom, this.items.button, this.items.print, this.items.engravedGlass, this.items.tumbler, this.items.accessory, this.items.art
+                ]
+            },
+            {
+                table: '37',
+                name: 'AnimatedJames',
+                items: [
+                    this.items.custom, this.items.comission
+                ]
+            },
+            {
+                table: '38',
+                name: 'Piri',
+                items: [
+                    this.items.button, this.items.print, this.items.mug, this.items.accessory, this.items.coaster
+                ]
+            },
+            {
+                table: '39',
+                name: 'HipsterHoof',
+                items: [
+                    this.items.plushie, this.items.cloth, this.items.sewn, this.items.pillow, this.items.accessory
+                ]
+            },
+            {
+                table: '40',
+                name: 'DeathPwny',
+                items: [
+                    this.items.button, this.items.print, this.items.sculpture
+                ]
+            },
+            {
+                table: '41',
+                name: 'Staphilea',
+                items: [
+                    this.items.plushie, this.items.sewn
+                ]
+            },
+            {
+                table: '42',
+                name: 'Brenda Hickey',
+                items: [
+                    this.items.button, this.items.print, this.items.official, this.items.comic
+                ]
+            },
+            {
+                table: '43',
+                name: 'VaaChar',
+                items: [
+                    this.items.button, this.items.tshirt, this.items.print, this.items.sculpture, this.items.sticker
+                ]
+            },
+            {
+                table: '44',
+                name: "Adlynh's creation",
+                items: [
+                    this.items.custom, this.items.button, this.items.print, this.items.sculpture, this.items.accessory
+                ]
+            },
+            {
+                table: '45-46',
+                name: 'PANINI Comics',
+                items: [
+                    this.items.comic
+                ]
+            },
+            {
+                table: '47',
+                name: 'Varonya´s Ponyherde',
+                items: [
+                    this.items.plushie, this.items.pillow, this.items.blanket, this.items.towel
+                ]
+            },
+            {
+                table: '48-49',
+                name: 'AnimeShop.de',
+                items: [
+                    this.items.official
+                ]
+            },
+            {
+                table: '50-51',
+                name: "Dennyvixen's Art",
+                items: [
+                    this.items.button, this.items.print, this.items.cloth, this.items.sticker, this.items.bookmark, this.items.magnet
+                ]
+            },
+            {
+                table: '54-55',
+                name: 'Dori-to',
+                items: [
+                    this.items.print, this.items.cloth, this.items.comic, this.items.beadart
+                ]
+            },
+            {
+                table: '56',
+                name: 'Violet Rose',
+                items: [
+                    this.items.plushie, this.items.cloth
+                ]
+            }
         ]
+
+
+        clearFilter() {
+            this.filter = []
+        }
+
+        setFilter(e) {
+            if (!this.filter.filter((item) => item.name == e.item.item.name).length) {
+                this.filter.push(e.item.item)
+            }
+        }
+
+        this.getVendors = () => {
+            debugger
+            return this.vendors.filter(vendor => {
+                return this.containsFilter(vendor)
+            })
+        }
+
+        this.containsFilter = (vendor) => {
+            var goal = this.filter.length
+            for (var item of this.filter) {
+                goal -= vendor.items.filter(vendorItem => vendorItem.name == item.name).length
+            }
+            return this.filter.length ? !goal : true
+        }
+
+        this.on('update', () => {
+            console.log('update')
+        })
+
     </script>
 </vendor>
