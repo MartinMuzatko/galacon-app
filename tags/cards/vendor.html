@@ -1,21 +1,21 @@
 <vendor>
     <h2>Vendors</h2>
-    Listing {getVendors().length} Items
-    <div if={filter.length} onclick={clearFilter}>
-        Clear all filter
-        matching the following criteria
+    Listing {getVendors().length} vendors
+    <div layout="row" layout-align="space-between" if={filter.length} onclick={clearFilter}>
+        <div>
+            <span>&times;</span> Clear all filter
+        </div>
+        <div class="items">
+            Filtering with the following items:
+            <div layout="row">
+                <item each={item, key in filter} item={item} key={key}></item>
+            </div>
+        </div>
     </div>
     <div if={containsFilter(vendor)} each={vendor in vendors}>
         <h3>{vendor.name}</h3>
         <div layout="row" class="items">
-            <div
-            onclick={setFilter}
-            class="item"
-            layout="column" layout-align="space-between center"
-            each={item, key in vendor.items}>
-                <img src="img/item/{key}.png" style="background-color: hsl({item.hue}, 50%, 50%);">
-                <span>{item.name}</span>
-            </div>
+            <item each={item, key in vendor.items} onclick={setFilter} item={item} key={key}></item>
         </div>
 
     </div>
