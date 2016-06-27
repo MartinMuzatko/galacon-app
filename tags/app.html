@@ -1,9 +1,12 @@
 <app>
-    <header class="appmenu">
-        Galacon Conguide
-        <a onclick={back} if={view!='main'}>back to app</a>
+    <header layout="row" layout-align="space-between center" class="appmenu {activeCard ? 'card-'+activeCard : ''}">
+        <div if={activeCard} layout="row" layout-align="space-around center" flex="70">
+            <img src="img/card/{activeCard}.png" alt="">
+            <h2>{cards[activeCard].title}</h2>
+        </div>
+        <a flex="30" onclick={back} if={view!='main'}>back to app</a>
     </header>
-    <section if={view=='main'} class="animated" name="menu" layout="row" layout-align="space-between start">
+    <section if={view == 'main'} class="animated" name="menu" layout="row" layout-align="space-between start">
         <card
             card="{card}"
             key="{key}"
@@ -34,6 +37,8 @@
 
         this.view = 'main'
 
+        this.activeCard = false
+
         this.on('mount', () => {
             console.log(this)
             for (var card in this.cards) {
@@ -44,8 +49,10 @@
             riot.route((name) => {
                 if (name == 'main') {
                     this.view = 'main'
+                    this.activeCard = false
                     this.update()
                 } else {
+                    this.activeCard = name
                     riot.mount(this.content, name, {view: 'full'})
                 }
                 //this.menu.classList.toggle('fadeOutUp')

@@ -5,6 +5,40 @@ nav {
 .appmenu {
     .stripe(@color-primary);
     border-bottom: .2em solid fadeout(@color-shadow, 20%);
+    color: @color-light;
+    text-shadow: 2px 0 0 @color-dark-shadow;
+
+    img {
+        width: 10em;
+    }
+
+    &.card-event {
+        background: lighten(@color-card-event, 10%);
+    }
+    &.card-guest {
+        background: lighten(@color-card-guest, 10%);
+    }
+    &.card-room {
+        background: lighten(@color-card-room, 10%);
+    }
+    &.card-vendor {
+        background: lighten(@color-card-vendor, 10%);
+    }
+    &.card-supporter {
+        background: lighten(@color-card-supporter, 10%);
+    }
+    &.card-ludwigsburg {
+        background: lighten(@color-card-ludwigsburg, 10%);
+    }
+    &.card-venue {
+        background: lighten(@color-card-venue, 10%);
+    }
+    &.card-team {
+        background: lighten(@color-card-team, 10%);
+    }
+    &.card-rules {
+        background: lighten(@color-card-rules, 10%);
+    }
 }
 
 * {
