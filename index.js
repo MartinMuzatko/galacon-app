@@ -2,6 +2,7 @@ import 'riot'
 
 import './tags/app.html'
 import './tags/card.html'
+import './tags/item.html'
 
 import './tags/cards/event.html'
 import './tags/cards/guest.html'
