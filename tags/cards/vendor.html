@@ -403,7 +403,7 @@
                 table: '47',
                 name: 'Varonya´s Ponyherde',
                 items: [
-                    this.items.plushie, this.items.pillow, this.items.blanket, this.items.towel
+                    this.items.plushie, this.items.pillow, this.items.towel
                 ]
             },
             {
@@ -448,16 +448,13 @@
         }
 
         this.getVendors = () => {
-            debugger
-            return this.vendors.filter(vendor => {
-                return this.containsFilter(vendor)
-            })
+            return this.vendors.filter(vendor => this.containsFilter(vendor))
         }
 
         this.containsFilter = (vendor) => {
             var goal = this.filter.length
             for (var item of this.filter) {
-                goal -= vendor.items.filter(vendorItem => vendorItem.name == item.name).length
+                goal -= vendor.items.filter(vendorItem => {return vendorItem.name == item.name}).length
             }
             return this.filter.length ? !goal : true
         }
