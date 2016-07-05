@@ -1,28 +1,99 @@
 <guest>
-    <h2>Guests of Honor</h2>
-    <div each={guest in guests.honor}>
-        <h3>{guest.name}</h3>
-        {guest.description}
+    <div each={guestType,types in guests}>
+        <h2>{guestType}</h2>
+        <article layout="row">
+            <div class="guest" each={guest in types} flex="50" layout="row" layout-align="space-between">
+                <div flex="20">
+                    <img src="img/guest/{guest.name.toLowerCase().replace(/\s/g,'-')}.jpg" alt="" />
+                </div>
+                <div flex="75">
+                    <h3>{guest.name}</h3>
+                    <span>{guest.position}</span>
+                    {guest.description}
+                    <div class="social" layout="row">
+                        <p each={key,social in guest.social}>
+                            <a href={social}>{key}</a>
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </article>
     </div>
-    <h2>Community Guests</h2>
-    <div each={guest in guests.community}>
-        <h3>{guest.name}</h3>
-        {guest.description}
-    </div>
+
     <script>
-        this.guests = {
-            honor: [
-                {
-                    name: 'Karl',
-                    description: 'Michael is the best guest we will have'
-                }
-            ],
-            community : [
-                {
-                    name: 'Michael',
-                    description: 'Michael is the best guest we will have'
-                }
-            ]
-        }
+    this.guests = {
+        'guests of honor': [
+            {
+                name: 'Brenda Hickey',
+                position: 'Comic artist and writer',
+                social: {
+                    web:'http://crazyary.com/',
+                    twitter:'https://twitter.com/CrazyAry'
+                },
+                description: 'Brenda Hickey is a comic artist and writer from Prince Edward Island, Canada. She’s had an unhealthy obsession with the comics art form from a very young age, and can’t remember a time when she wasn’t drawing. In 2013 she began illustrating for IDW Publishing on the “My Little Pony: Friendship is Magic” comic, her first issue being the Applejack Micro. Since then, she’s done work on the MLP main comic series, MLP Friends Forever, and also the Fiendship is Magic & MLP 2015 Holiday special.'
+            },
+            {
+                name: 'Rebecca Shoichet',
+                position: 'Actress and singer',
+                social: {
+                    twitter:'https://twitter.com/RebeccaShoichet'
+                },
+                description: 'In these parts we may know Rebecca Shoichet only for voicing Sunset Shimmer and also being the singing voice for Twilight Sparkle in “My Little Pony: Friendship is Magic”. But she has quite an impressive vita in animation voiceover. This includes speaking roles in “Inu Yasha”, “Nana”, “Gundam Seed”, “Kid VS Kat” and “Iron Man: Amored Adventures” amongst many other. She also had acting roles in several movies and TV series. And of course: singing. With her musical education and background, she is able to do a wide ranges of musical styles. Rebecca has been performing on stage with several bands as well as with the Vancouver Symphony Orchestra.'
+            },
+            {
+                name: 'Amy Keating Rogers',
+                position: 'Script Writer and Story Supervisor',
+                social: {
+                    web:'http://amykeatingrogers.com/',
+                    twitter:'https://twitter.com/KeatingRogers'
+                },
+                description: 'Amy Keating Rogers began her writing career as a playwright.  But while working as a Production Assistant on “The Powerpuff Girls,” creator Craig McCracken offered her the opportunity to write freelance for the show.  By the end of that year, she was Head Writer of Powerpuff.  During her years at Cartoon Network, Amy worked on a number of terrific shows:  “Dexter’s Laboratory,” “Samurai Jack,” and “Foster’s Home for Imaginary Friends” to name a few.  After her time at Cartoon Network, Amy began writing freelance for many shows, when Lauren Faust asked her to write for “My Little Pony: Friendship is Magic,” Amy jumped at the chance and wrote episodes for seasons 1, 2, 4, and 5.   In April of 2015, Amy started working fulltime at Disney as a Story Supervisor for New IP writing on projects such as “Star Darlings” and “Whisker Haven Tales.”'
+            },
+            {
+                name: 'Anneli Heed',
+                position: 'Voice actress, singer, comedian',
+                social: {
+                    web:'http://www.anneliheed.com/',
+                    twitter:'https://twitter.com/AnneliHeed'
+                },
+                description: 'Anneli Heed is one of Swedens top voice actresses and her roles other then MLP includes Princess Leia from Star Wars, Tigress in DreamWork´s Kung Fu Panda movies, The Biskit twins on Littlest Pet Shop, Wendy on Disney´s Gravity Falls, Asami Sato on Legend of Korra and more. Heed is also a comedian and a singer. On My Little Pony she voices ca 30 ponies in different voices! Spike, Sweetie Belle, Princess Cadence, Spitfire, Queen Chryssalis, and sometimes…Derpy! She is also the singing voice of Pinkie Pie and Rainbow Dash! Annelis first contact with the bronydom was 2012 on the first GalaCon. Because of…that “Äppelpaj incident” in 2012….'
+            },
+            {
+                name: 'Julia Meynen',
+                position: 'Voice actress, Dubbing director, Dialogue book writer, Singer',
+                social: {
+                    twitter:'https://twitter.com/JuliaMeynen'
+                },
+                description: 'Julia Meynens portfolio as a voice actress sure is impressive, as she spoke numerous live-action as well as anime characters. Current examples would be (Lieutenant) Alisha Granderson in “The Last Ship”, Katie Nolan in “Chicago Fire”, Suguha Kirigaya in “Sword Art Online”, Shinka Nibutani in “Love, Chunibyo & Other Delusions!” and of course: Twilight Sparkle in “My Little Pony: Friendship is Magic”. Starting in the year 2013 Julia not only works behind a microphone in the field of voice-over, as by now she also works as dubbing director and writes the dialogue books for many dubbing productions. As well as that, singing is one of her big passions, which she does professionally. Along with her mother Silvia they form the country-music duo “The Nashville Ladies”.'
+            },
+        ],
+        'community guests' : [
+            {
+                name: 'Dustykatt',
+                position: 'YouTuber and show host',
+                social: {
+                },
+                description: 'Aside from his epic moustache, Dusty’s life is a manly checklist, for he has done so many manly things. Including being an athlethe in school and college, pro-wrestler, bodyguard, ranch worker and motorcycle mechanic who also builds custom bikes. And he watches a cartoon show intended for little girls. Well, what do you expect from the “Manliest Brony in the World”? Dusty is known primarily for his livestreamed podcast “Stay Brony My Friends”, his YouTube videos which have gone viral, and separating convention-goers from their money at charity auctions. This has also piqued the curiosity of documentary filmmakers, thus explaining why you can see his ugly mug and manly mustache plastered all over movie theaters. And never forget to stay brony, my friends.'
+            },
+            {
+                name: 'AnimatedJames',
+                position: 'Cartoonist, Musician, Writer, Voice Actor',
+                social: {
+                    youtube:'https://www.youtube.com/user/AnimatedJames',
+                    facebook:'https://www.facebook.com/AnimatedJames/info/?tab=page_info'
+                },
+                description: 'James Barkley better known as “AnimatedJames” is a cartoonist and writer. His most known works in the brony fandom probably are the animations on the “Beat it” PMV from Michelle Creber and BlackGryphon as well as a parody on the “Winter-Wrap-Up” song from “Friendship is Magic”. Besides that, he also produced own works in form of various short animations or the music video “Creative Types” and published them on his YouTube channel. Beyond the animation work, he also writes the original music himself and voicing some of his characters too.'
+            },
+            {
+                name: 'Vocal Score',
+                position: 'Professional Musician and Singer',
+                social: {
+                    youtube:'http://youtube.com/vocalscorepony',
+                },
+                description: 'Vocal Score is a professional musician who first started out in the fandom by writing little songs to explore our favourite pony’s characters a bit more. He started to get noticed though with his interesting versions of popular fandom songs. Vocal has taken electronic and rap songs and given them his own special twist, a style unlike any other. When he’s not working in his own music, Vocal travels the world, playing music at five star hotels and on board cruise ships. He’s also played several brony conventions, and this will be his second time playing at GalaCon, since we loved his performance so much last year! He actually wants as many people as possible to throw song requests for him to play this year at GalaCon, so head over to his Twitter (@vocalscorepony) and request some songs!'
+            },
+
+        ]
+    }
     </script>
 </guest>
