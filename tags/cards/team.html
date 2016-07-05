@@ -1,22 +1,54 @@
 <team>
     <h2>Team</h2>
-    <div each={member in members}>
-        <h3>{member.name}</h3>
-        {member.position}
-        {member.description}
-    </div>
+    <article layout="row">
+        <div class="team" each={member in members} flex="33">
+            <img src="img/team/{member.name.toLowerCase()}.png" alt="" />
+            <h3>{member.name}</h3>
+            <span>{member.position}</span>
+            <a href="mailto:{member.email}">{member.email}</a>
+        </div>
+    </article>
     <script>
-        this.members = [
-            {
-                name: 'Saij',
-                position: 'Conchair',
-                description: 'Miau'
-            },
-            {
-                name: 'Misan',
-                position: 'Webentwicklerli',
-                description: 'Miaut auch'
-            }
-        ]
+    this.members = [
+        {
+            name: 'Saij',
+            position: 'Conchair',
+            email:'vendors@galacon.eu'
+        },
+        {
+            name: 'Misan',
+            position: 'Webdeveloper + PR',
+            email:'pr@galacon.eu'
+        },
+        {
+            name: 'daMatt',
+            position: 'PR',
+            email:'pr@galacon.eu'
+        },
+        {
+            name: 'JayJay',
+            position: 'Ticket and order support',
+            email:'ticket@galacon.eu'
+        },
+        {
+            name: '404compliant',
+            position: 'Volunteer coordination',
+            email:'volunteer@galacon.eu'
+        },
+        {
+            name: 'Bergkamener',
+            position: 'Events and panel coordination',
+            email:'events@galacon.eu'
+        },
+        {
+            name: 'Stargaze',
+            position: 'Events and panel coordination',
+            email:'events@galacon.eu'
+        },
+        {
+            name: 'Goschi',
+            position: 'Guest relations',
+        },
+    ]
     </script>
 </team>
