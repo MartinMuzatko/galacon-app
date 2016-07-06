@@ -1,14 +1,19 @@
 .card
 {
-    padding: 1em .5em;
+    padding: .5em;
     > div {
         cursor: pointer;
         transition: all .5s ease;
+        color: @color-dark;
+        text-shadow: 1px 1px 2px @color-light-shadow;
+        background-color: fadeout(@color-shadow, 40%);
         img {
             transition: all .5s ease;
             transform: scale(.85);
         }
         &:hover {
+            color: @color-light;
+            text-shadow: 1px 1px 2px @color-dark-shadow;
             img {
                 transform: scale(1);
             }
@@ -40,9 +45,6 @@
                 background: @color-card-rules;
             }
         }
-        color: @color-dark;
-        text-shadow: 1px 1px 2px @color-light-shadow;
-        background-color: fadeout(@color-shadow, 40%);
         header {
             h2 {
                 padding: 0 1em;

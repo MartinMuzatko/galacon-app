@@ -2,6 +2,12 @@ nav {
 
 }
 
+body {
+    @media screen and (max-width: @breakpoint-md) {
+        font-size: 14px;
+    }
+}
+
 .appmenu {
     .stripe(@color-primary, small);
     border-bottom: .2em solid fadeout(@color-shadow, 20%);
