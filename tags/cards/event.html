@@ -14,29 +14,29 @@
     				</div>
     			</div>
     		</div>
-            <div class="events" layout="row" layout-align="space-between">
-    			<div
-    				layout="column"
-    				class="day"
-    				each={day, rooms in schedule}>
-    				<h2>{day}</h2>
-    				<div layout="column" each={room, events in rooms}>
-    					<h3>{room}</h3>
-    					<div
-                            onclick={showDetail}
-    						class="event"
-    						each={time, event in events}
-    						style="
-    							background: hsl({event.hue}, 50%, 50%);
-    							top: {getTimeSpan(time).offset*scale}em;
-    							height: {getTimeSpan(time).height*scale}em"
-    						>
-    						<h4>{event.title}</h4>
-    						{event.description}
-    					</div>
-    				</div>
-    			</div>
-    		</div>
+                <div class="events" layout="row" layout-align="space-between">
+        			<div
+        				layout="column"
+        				class="day"
+        				each={day, rooms in schedule}>
+        				<h2>{day}</h2>
+        				<div layout="column" each={room, events in rooms}>
+        					<h3>{room}</h3>
+        					<div
+                                onclick={showDetail}
+        						class="event"
+        						each={time, event in events}
+        						style="
+        							background: hsl({event.hue}, 70%, 60%);
+        							top: {getTimeSpan(time).offset*scale}em;
+        							height: {getTimeSpan(time).height*scale}em"
+        						>
+        						<h4>{event.title}</h4>
+                                {event.description}
+        					</div>
+        				</div>
+        			</div>
+        		</div>
         </section>
     </div>
     <script>
@@ -72,30 +72,294 @@
     {
         'opening' :
         {
-            'hue' : 210,
-            'title' : 'Eröffnungszeremonie',
+            'hue' : 23,
+            'title' : 'Opening Ceremony',
             'description' : 'Details about the event'
         },
         'cosplay' :
         {
-            'hue' : 140,
+            'hue' : 23,
             'title' : 'Cosplay Contest',
+            'description' : 'Prepare your costume and take part in the cosplay costume!'
+        },
+        'jeopardy' :
+        {
+            'hue' : 96,
+            'title' : 'Pony Jeopardy',
+            'description' : 'A pony themed quiz based on the popular American TV show.'
+        },
+        'retro' :
+        {
+            'hue' : 208,
+            'title' : 'Retro Panel',
             'description' : 'Details about the event'
-        }
+        },
+        'comic' :
+        {
+            'hue' : 208,
+            'title' : 'Comic Panel by Brenda Hickey',
+            'description' : 'Details about the event'
+        },
+        'award' :
+        {
+            'hue' : 23,
+            'title' : 'Award Ceremony',
+            'description' : 'Details about the event'
+        },
+        'plushie' :
+        {
+            'hue' : 45,
+            'title' : 'PlushieCon',
+            'description' : 'Details about the event'
+        },
+        'bizaam' :
+        {
+            'hue' : 0,
+            'title' : 'BIZAAM Signing Session',
+            'description' : 'Details about the event'
+        },
+        'signing' :
+        {
+            'hue' : 0,
+            'title' : 'Signing Session',
+            'description' : 'Details about the event'
+        },
+        'speedy' :
+        {
+            'hue' : 23,
+            'title' : 'Super Speedy Saturday Sale',
+            'description' : 'Details about the event'
+        },
+        'ball' :
+        {
+            'hue' : 23,
+            'title' : 'Gala Ball',
+            'description' : 'Details about the event'
+        },
+        'pabs' :
+        {
+            'hue' : 96,
+            'title' : 'P.A.B.S. Animations',
+            'description' : 'Details about the event'
+        },
+        'karaoke' :
+        {
+            'hue' : 96,
+            'title' : 'My little Karaoke Song',
+            'description' : 'Details about the event'
+        },
+        'arts' :
+        {
+            'hue' : 96,
+            'title' : 'Arts by Rariedash',
+            'description' : 'Details about the event'
+        },
+        'communitycomic' :
+        {
+            'hue' : 96,
+            'title' : 'Community Comic Panel',
+            'description' : 'Details about the event'
+        },
+        'dramatic' :
+        {
+            'hue' : 96,
+            'title' : 'Dramatic Reading',
+            'description' : 'Details about the event'
+        },
+        'modeling' :
+        {
+            'hue' : 96,
+            'title' : '3D Modeling and Printing',
+            'description' : 'Details about the event'
+        },
+        'vocalscore' :
+        {
+            'hue' : 208,
+            'title' : 'Music by Vocal Score',
+            'description' : 'Details about the event'
+        },
+        'mcarch' :
+        {
+            'hue' : 96,
+            'title' : 'Music by MC-Arch',
+            'description' : 'Details about the event'
+        },
+        'party' :
+        {
+            'hue' : 23,
+            'title' : 'Gala Party',
+            'description' : 'Details about the event'
+        },
+        'games' :
+        {
+            'hue' : 45,
+            'title' : 'Video Games Demonstration & My little Karaoke',
+            'description' : 'Details about the event'
+        },
+        'ccgt' :
+        {
+            'hue' : 45,
+            'title' : 'Amigo Collectible Card Game Tournament & Demonstration',
+            'description' : 'Exact times will be announced separately'
+        },
+        'giveplushie' :
+        {
+            'hue' : 45,
+            'title' : 'PlushieCon Plushie Acceptance',
+            'description' : 'Here'
+        },
+        'amy' :
+        {
+            'hue' : 208,
+            'title' : 'Rebecca Shociet/Amy',
+            'description' : 'Details about the event'
+        },
+        'animatedjames' :
+        {
+            'hue' : 208,
+            'title' : 'Animated James',
+            'description' : 'Details about the event'
+        },
+        'charity' :
+        {
+            'hue' : 23,
+            'title' : 'Charity Auction',
+            'description' : 'Details about the event'
+        },
+        'family' :
+        {
+            'hue' : 96,
+            'title' : 'Family Feud',
+            'description' : 'Details about the event'
+        },
+        'fights' :
+        {
+            'hue' : 96,
+            'title' : 'Pony Fights',
+            'description' : 'Details about the event'
+        },
+        'yasi' :
+        {
+            'hue' : 96,
+            'title' : 'Yasis Plushie Panel',
+            'description' : 'Details about the event'
+        },
+        'imalou' :
+        {
+            'hue' : 96,
+            'title' : 'Painting by Imalou',
+            'description' : 'Details about the event'
+        },
+        'pixel' :
+        {
+            'hue' : 96,
+            'title' : 'Pixel Shy: Flash Games and Animations',
+            'description' : 'Details about the event'
+        },
+        'plushiepick' :
+        {
+            'hue' : 45,
+            'title' : 'PlushieCon Plushie Pick-Up',
+            'description' : 'Details about the event'
+        },
+        'close' :
+        {
+            'hue' : 23,
+            'title' : 'Closing Ceremony',
+            'description' : 'Details about the event'
+        },
+
     }
 
     this.schedule =
     {
         Saturday :
         {
-            'Schubart Saal' :
-            {
-                '9:00-11:00' : this.events.opening,
-                '18:00-22:30' : this.events.cosplay,
-            },
             'Main Hall' :
             {
-                '11:15-12:00' : this.events.cosplay
+                '9:00-11:00' : this.events.opening,
+                '11:00-12:30' : this.events.jeopardy,
+                '12:40-13:45' : this.events.comic,
+                '14:00-15:15' : this.events.cosplay,
+                '15:45-16:30' : this.events.jeopardy,
+                '16:30-17:15' : this.events.retro,
+                '18:00-18:15' : this.events.award,
+            },
+            'Theater Foyer' :
+            {
+                '11:15-12:30' : this.events.bizaam,
+                '14:00-15:45' : this.events.signing,
+                '18:00-18:45' : this.events.speedy,
+                '20:00-23:40' : this.events.ball,
+            },
+            'Panel Room I' :
+            {
+                '11:15-11:30' : this.events.pabs,
+                '12:30-13:30' : this.events.karaoke,
+                '14:00-15:00' : this.events.arts,
+                '15:30-16:30' : this.events.communitycomic,
+            },
+            'Panel Room II' :
+            {
+                '11:40-12:40' : this.events.dramatic,
+                '13:00-14:00' : this.events.modeling,
+                '13:45-15:15' : this.events.vocalscore,
+                '15:45-16:15' : this.events.mcarch,
+            },
+            'Party Hall' :
+            {
+                '20:00-23:40' : this.events.party,
+            },
+            'Games & Karaoke Room' :
+            {
+                '11:00-22:30' : this.events.games,
+            },
+            'CCG Room' :
+            {
+                '11:00-22:30' : this.events.ccgt,
+            },
+            'PlushieCon Booth' :
+            {
+                '11:00-23:40' : this.events.plushie,
+            }
+
+        },
+        Sunday :
+        {
+            'Main Hall' :
+            {
+                '10:00-10:40' : this.events.amy,
+                '11:30-12:40' : this.events.animatedjames,
+                '15:00-17:15' : this.events.charity,
+                '17:15-18:30' : this.events.close,
+            },
+            'Foyer' :
+            {
+                '12:30-14:15' : this.events.signing,
+            },
+            'Panel Room I' :
+            {
+                '10:00-10:30' : this.events.family,
+                '11:30-12:30' : this.events.fights,
+                '13:00-14:00' : this.events.family,
+            },
+            'Panel Room II' :
+            {
+                '10:15-10:45' : this.events.yasi,
+                '11:45-12:45' : this.events.imalou,
+                '13:15-14:15' : this.events.pixel,
+            },
+            'Games & Karaoke Room' :
+            {
+                '9:30-15:00' : this.events.games,
+            },
+            'CCG Room' :
+            {
+                '9:30-15:00' : this.events.ccgt,
+            },
+            'PlushieCon Booth' :
+            {
+                '9:30-15:00' : this.events.plushiepick,
             }
         },
     }
