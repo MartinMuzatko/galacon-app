@@ -1,7 +1,348 @@
 <supporter>
+    <h2>Volunteers</h2>
+    <ul>
+        <li each={volunteer in volunteers}>
+            {volunteer.name} - {volunteer.role}
+        </li>
+    </ul>
     <script>
-        this.supporter = [
-            'Miau'
+        this.volunteers = [
+            {
+                name: 'DesertFOX',
+                role: 'General helper'
+            },
+            {
+                name: 'Flick',
+                role: 'General helper'
+            },
+            {
+                name: 'Bräuti',
+                role: 'General helper'
+            },
+            {
+                name: 'Chris',
+                role: 'General helper'
+            },
+            {
+                name: 'Aka',
+                role: 'Reception/Floor, Vendor'
+            },
+            {
+                name: 'AN602',
+                role: 'Panel'
+            },
+            {
+                name: 'Ansis',
+                role: 'Game (lead)'
+            },
+            {
+                name: 'Areston',
+                role: 'Reception/Panel, Panel'
+            },
+            {
+                name: 'Ben',
+                role: 'Game'
+            },
+            {
+                name: 'Blue Sparkle',
+                role: 'Reception/Panel, Panel'
+            },
+            {
+                name: 'Brown',
+                role: 'Floor'
+            },
+            {
+                name: 'Chiyo',
+                role: 'Signing/GalaDisco, Signing/Vendor'
+            },
+            {
+                name: 'Crash Override',
+                role: 'Plush (assistant lead)'
+            },
+            {
+                name: 'Dandelo',
+                role: 'Vendor'
+            },
+            {
+                name: 'Dashlinux',
+                role: 'Panel/Game, Panel'
+            },
+            {
+                name: 'deisabri',
+                role: 'Reception'
+            },
+            {
+                name: 'Dratze',
+                role: 'Floor'
+            },
+            {
+                name: 'DrDerrek',
+                role: 'Tech (lead)'
+            },
+            {
+                name: 'Electro-BLITZ',
+                role: 'Panel/Game, Panel'
+            },
+            {
+                name: 'Finn',
+                role: 'Floor'
+            },
+            {
+                name: 'FlaK',
+                role: 'Tech'
+            },
+            {
+                name: 'france',
+                role: 'Floor/Vendor, Vendor'
+            },
+            {
+                name: 'Hiraiko',
+                role: 'Plush'
+            },
+            {
+                name: 'Icy',
+                role: 'Signing/GalaDisco, Signing/Vendor'
+            },
+            {
+                name: 'Irish',
+                role: 'Panel'
+            },
+            {
+                name: 'Jake',
+                role: 'Floor/GalaDisco, Floor'
+            },
+            {
+                name: 'Kami',
+                role: 'Signing/GalaDisco, Signing/Floor'
+            },
+            {
+                name: 'Kromaek',
+                role: 'Panel'
+            },
+            {
+                name: 'Kuro',
+                role: 'Vendor'
+            },
+            {
+                name: 'L3Doktor',
+                role: 'Floor'
+            },
+            {
+                name: 'Leon',
+                role: 'Docu'
+            },
+            {
+                name: 'Lichtschatten',
+                role: 'Panel'
+            },
+            {
+                name: 'Light Landstrider',
+                role: 'Game'
+            },
+            {
+                name: 'LightningGear',
+                role: 'Docu'
+            },
+            {
+                name: 'Lux_Pony',
+                role: 'Plush'
+            },
+            {
+                name: 'Maix',
+                role: 'Panel'
+            },
+            {
+                name: 'Meganium',
+                role: 'Plush'
+            },
+            {
+                name: 'Mikado',
+                role: 'Panel/Game, Panel'
+            },
+            {
+                name: 'MoSte',
+                role: 'Tech (assistant lead)'
+            },
+            {
+                name: 'MudgeO',
+                role: 'Signing/GalaDisco, Signing/Vendor'
+            },
+            {
+                name: 'Mystogan',
+                role: 'Tech'
+            },
+            {
+                name: 'Nachtana',
+                role: 'Floor (lead)'
+            },
+            {
+                name: 'New Leaf',
+                role: 'Reception/Vendor, Vendor'
+            },
+            {
+                name: 'Nico',
+                role: 'Docu (lead)'
+            },
+            {
+                name: 'Nobo',
+                role: 'Signing (lead)/GalaDisco, Signing (lead)/Panel'
+            },
+            {
+                name: 'NOXimilien',
+                role: 'Game'
+            },
+            {
+                name: 'Ona',
+                role: 'Reception/Floor, Reception'
+            },
+            {
+                name: 'Pappari',
+                role: 'Vendor'
+            },
+            {
+                name: 'Pinfeather',
+                role: 'Reception (assistant lead)'
+            },
+            {
+                name: 'PinkiSpy',
+                role: 'Plush'
+            },
+            {
+                name: 'PonyHD',
+                role: 'Panel'
+            },
+            {
+                name: 'Railway Dash',
+                role: 'Plush (lead)'
+            },
+            {
+                name: 'RainbowDashKS',
+                role: 'Panel'
+            },
+            {
+                name: 'Rainbow-Dave',
+                role: 'Plush'
+            },
+            {
+                name: 'RainbowDerpy',
+                role: 'Tech'
+            },
+            {
+                name: 'Rainbow Rocks',
+                role: 'Panel'
+            },
+            {
+                name: 'Rapti',
+                role: 'Floor'
+            },
+            {
+                name: 'Ravirr',
+                role: 'Reception/Vendor, Vendor'
+            },
+            {
+                name: 'Renard',
+                role: 'Game (assistant lead)'
+            },
+            {
+                name: 'Renya',
+                role: 'Vendor'
+            },
+            {
+                name: 'Risingstar',
+                role: 'Plush'
+            },
+            {
+                name: 'RK-9',
+                role: 'Floor/GalaDisco, Floor'
+            },
+            {
+                name: 'Rotul7',
+                role: 'Vendor'
+            },
+            {
+                name: 'Rusty Headphones',
+                role: 'Tech'
+            },
+            {
+                name: 'Scarf Ace',
+                role: 'Reception (lead)'
+            },
+            {
+                name: 'Schnitzeldroid',
+                role: 'Vendor'
+            },
+            {
+                name: 'Shadow Dash',
+                role: 'Floor'
+            },
+            {
+                name: 'ShadowHooves',
+                role: 'Floor (assistant lead)'
+            },
+            {
+                name: 'simonthechipmunk',
+                role: 'Reception/GalaDisco, Reception'
+            },
+            {
+                name: 'Sky Fang',
+                role: 'Signing/GalaDisco, Signing/Vendor'
+            },
+            {
+                name: 'Sonnentau',
+                role: 'Reception/Floor, Floor'
+            },
+            {
+                name: 'ssingfo',
+                role: 'Floor'
+            },
+            {
+                name: 'Steve',
+                role: 'Floor/Vendor, Vendor'
+            },
+            {
+                name: 'Sumpony',
+                role: 'Reception'
+            },
+            {
+                name: 'Sundance',
+                role: 'Vendor (lead)'
+            },
+            {
+                name: 'theNumber15',
+                role: 'Reception/GalaDisco, Reception'
+            },
+            {
+                name: 'Triss',
+                role: 'Reception/Panel, Reception'
+            },
+            {
+                name: 'unique_Jewels',
+                role: 'Plush'
+            },
+            {
+                name: 'Wildfox',
+                role: 'Signing/GalaDisco (lead), Signing/Reception'
+            },
+            {
+                name: 'Wydec',
+                role: 'Docu'
+            },
+            {
+                name: 'Xaid',
+                role: 'Panel (lead)'
+            },
+            {
+                name: 'Yaktan',
+                role: 'Signing/GalaDisco, Signing/Game'
+            },
+            {
+                name: 'Yavos',
+                role: 'Docu'
+            },
+            {
+                name: 'Zeromix',
+                role: 'Floor'
+            }
         ]
     </script>
 </supporter>
