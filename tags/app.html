@@ -12,7 +12,7 @@
             key="{key}"
             onclick={select}
             class="card card-{key}"
-            flex-sm="100" flex-gt-md="33" flex="50"
+            flex="50" flex-gt-sm="33"
             each={key, card in cards}
         >
             <img src="img/card/{key}.png" alt="">
@@ -26,13 +26,13 @@
         this.cards = {
             event: { title: 'Events'},
             guest: { title: 'Guests'},
-            room: { title: 'Rooms'},
+            //room: { title: 'Rooms'},
             vendor: { title: 'Vendor'},
             supporter: { title: 'Supporter'},
             ludwigsburg: { title: 'Ludwigsburg'},
             venue: { title: 'Venue'},
             team: { title: 'Team'},
-            rules: { title: 'Rules'}
+            //rules: { title: 'Rules'}
         }
 
         this.view = 'main'
